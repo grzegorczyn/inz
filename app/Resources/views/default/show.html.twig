@@ -1,0 +1,17 @@
+{% block body %}
+<h1>MY FIRST VIEW</h1>
+    {% for key in viewCustomerdets %}
+       <div>
+           {{ key.id }}
+           {{ key.Imie }}
+           {{ key.Nazwisko }}
+           {{ key.Nazwafirmy }}
+           {{ key.NIP }}
+           <div> <p><a href="{{ path('provider_showone')  }}">wyswietl</a></p> </div>
+
+
+
+       </div>
+    {% endfor %}
+
+{% endblock %}

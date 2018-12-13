@@ -1,0 +1,37 @@
+security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        user_bundle:
+            entity:
+                class: AppBundle:User
+                property: username
+
+    firewalls:
+        main:
+            anonymous: ~
+            pattern:    ^/
+            form_login:
+                login_path: login
+                check_path: login
+
+            logout:
+                path:   /logout
+                target: /login
+
+
+    access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/(css|js), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/(_wdt|_profiler), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/, roles: ROLE_USER }
+
+
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html

@@ -1,0 +1,27 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+logout:
+    path: /logout
+
+#provider_add:
+  #  path: /add
+    #controller: App\Controller\add::add
+
+provider_register:
+        path: /register
+        controller: App\Controller\RegisterController::RegisterController
+
+provider_showone:
+    path: /showone
+    controller: App\Controller\ShowOneController::ShowOneController
+
+
+provider_update:
+    path: /update
+    controller: App\Controller\UpdateController::UpdateController
+
+provider_show:
+    path: /show
+    controller: App\Controller\ShowController::ShowController

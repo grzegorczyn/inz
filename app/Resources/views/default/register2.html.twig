@@ -1,0 +1,17 @@
+
+
+{% block title %}Rejestracja{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+{{ form_row(form) }}
+    <div id="contact_list" data-prototype="{{ form_widget(form.contact.vars.prototype)|e('html_attr') }}">
+
+        {% for row in form.contact %}
+
+{{ form_row(row) }}
+        {% endfor %}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
